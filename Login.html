@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录窗口</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            font-family: JetBrains Mono;
+        }
+        
+        body {
+            height: 100vh;
+            width: 100vw;
+        }
+        
+        .container {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 600px;
+            width: 600px;
+            overflow: hidden;
+        }
+        
+        .decoration,
+        .login_box,
+        .sign_box {
+            position: absolute;
+        }
+        
+        .decoration {
+            top: 50px;
+            left: 100px;
+            height: 400px;
+            width: 400px;
+            background-color: white;
+            opacity: 0.6;
+            box-shadow: 0px 0px 20px #ddd;
+            border-radius: 8px;
+            z-index: -1;
+        }
+        
+        .login_box,
+        .sign_box {
+            top: 65px;
+            left: 85px;
+            width: 430px;
+            height: 500px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0px 0px 10px #ddd;
+            transition: left 0.5s ease-in, top 0.5s ease-in;
+        }
+        
+        .sign_box {
+            left: -460px;
+            /* animation: signupin 1s ease-in; */
+        }
+        
+        .left_box {
+            display: inline-block;
+            width: 20px;
+            height: 50px;
+            background-color: #e74c3c;
+        }
+        
+        .tip {
+            text-align: center;
+            height: 100px;
+            line-height: 100px;
+            color: #e74c3c;
+            text-transform: uppercase;
+        }
+        
+        .sign_up_button {
+            display: block;
+            float: right;
+            outline: none;
+            border: none;
+            width: 100PX;
+            height: 35px;
+            border-radius: 4PX;
+            background-color: #e74c3c;
+            margin-right: -20px;
+            color: white;
+        }
+        
+        .sign_up_button:hover {
+            cursor: pointer;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+        
+        .form_box {
+            position: absolute;
+            top: 160px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        input {
+            outline: none;
+            border: none;
+            padding: 10px;
+            width: 300px;
+            margin: 20px 10px;
+            border: 2px solid transparent;
+            border-radius: 6px;
+            box-shadow: 0px 0px 5px #ccc;
+            font-size: 18px;
+            font-weight: bold;
+            color: #e74c3c;
+            box-sizing: border-box;
+        }
+        
+        input:focus {
+            border: 2px solid #e74c3c;
+        }
+        
+        .btn {
+            width: 300px;
+            height: 40px;
+            background-color: #e74c3c;
+            outline: none;
+            border: none;
+            color: white;
+            margin: 20px 10px;
+            border-radius: 4px;
+        }
+        
+        .btn:hover {
+            cursor: pointer;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="decoration">
+        </div>
+        <div class="login_box" id="loginbox">
+            <h1 class="tip">Login</h1>
+            <button class="sign_up_button" onclick="signupShow();">SIGN UP</button>
+            <div class="form_box">
+                <form method="POST" action="">
+                    <input type="text" placeholder="username" />
+                    <input type="password" placeholder="password" />
+                    <button class="btn login_btn" type="submit">LOGIN</button>
+                </form>
+            </div>
+        </div>
+        <div class="sign_box" id="signbox">
+            <h1 class="tip">SIGN UP</h1>
+            <button class="sign_up_button" onclick="loginShow();">LOGIN</button>
+            <div class="form_box">
+                <form method="POST" action="">
+                    <input type="text" placeholder="username" />
+                    <input type="password" placeholder="password" />
+                    <input type="password" placeholder="sure password" />
+                    <button class="btn login_btn" type="submit">SIGN UP</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function signupShow() {
+        let loginbox = document.getElementById('loginbox');
+        loginbox.style.top = "0px";
+        loginbox.style.top = "640px";
+        let signbox = document.getElementById('signbox');
+        signbox.style.left = "85px";
+    }
+
+    function loginShow() {
+        let signbox = document.getElementById('signbox');
+        signbox.style.left = "-460px";
+        let loginbox = document.getElementById('loginbox');
+        loginbox.style.top = "65px";
+
+    }
+</script>
+
+</html>
